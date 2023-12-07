@@ -15,4 +15,8 @@ export async function createEmployee(data: CreateEmployeeParams) {
     return employeeRepository.create(data)
 }
 
-export const employeeService = { createEmployee }
+export async function findEmployees(name: string) {
+    return employeeRepository.findEmployees(name)
+}
+
+export const employeeService = { createEmployee, findEmployees }
