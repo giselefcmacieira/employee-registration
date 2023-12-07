@@ -7,9 +7,14 @@
         "baseUrl": ".",
         "paths": {
             "@/*": [
-                "./src/*"
+                "*"
             ]
-        }
+        },
+        "plugins": [
+            {
+                "transform": "typescript-transform-paths.ts"
+            }
+        ]
     },
     "ts-node": {
         "esm": true

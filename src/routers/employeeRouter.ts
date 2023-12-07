@@ -1,7 +1,7 @@
-import { postEmployee } from "@/controllers/employeeController";
-import { validateBody } from "@/midllewares/validation-midlleware";
-import { createEmployeeSchema } from "@/schemas";
 import { Router } from "express";
+import { validateBody } from "../midllewares";
+import { createEmployeeSchema } from "../schemas";
+import { postEmployee } from "../controllers/employeeController";
 
 
 const employeesRouter = Router()

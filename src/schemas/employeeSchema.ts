@@ -1,5 +1,6 @@
-import { CreateEmployeeParams } from "@/services";
+
 import Joi from "joi";
+import { CreateEmployeeParams } from "../services";
 
 
 export const createEmployeeSchema = Joi.object<CreateEmployeeParams>({

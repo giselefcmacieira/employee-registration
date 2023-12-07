@@ -1,5 +1,6 @@
-import { prisma } from "@/config/database";
+
 import { Employee, Prisma } from "@prisma/client";
+import { prisma } from "../config/database";
 
 
 async function create(data: Prisma.EmployeeUncheckedCreateInput): Promise<Employee> {

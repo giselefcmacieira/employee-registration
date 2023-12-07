@@ -1,5 +1,6 @@
-import { employeeRepository } from "@/repositories";
+
 import { Employee } from "@prisma/client";
+import { employeeRepository } from "../repositories";
 
 
 export type CreateEmployeeParams = Omit<Employee, 'id' | 'createdAt' | 'updatedAt'>
