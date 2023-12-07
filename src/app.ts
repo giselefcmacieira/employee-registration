@@ -1,4 +1,5 @@
 import express, { Express } from 'express'
+import "express-async-errors"
 import cors from 'cors'
 import { connectDb, disconnectDB } from './config/database';
 import { departmentRouter, employeesRouter } from './routers';

@@ -14,6 +14,11 @@ export function handleApplicationErrors(
             message: err.message,
         });
     }
+    if (err.name === 'ConflictError') {
+        return res.status(httpStatus.CONFLICT).send({
+            message: err.message,
+        });
+    }
     console.error(err);
     res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
         error: 'InternalServerError',

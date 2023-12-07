@@ -1,8 +1,6 @@
-
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 import { employeeService } from "../services";
-
 
 export async function postEmployee(req: Request, res: Response) {
 

@@ -9,4 +9,10 @@ async function create(data: Prisma.EmployeeUncheckedCreateInput): Promise<Employ
     })
 }
 
-export const employeeRepository = { create }
+async function findEmployeeByCPF(cpf: string): Promise<Employee> {
+    return prisma.employee.findUnique({
+        where: { cpf }
+    })
+}
+
+export const employeeRepository = { create, findEmployeeByCPF }
