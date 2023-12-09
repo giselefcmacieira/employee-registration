@@ -31,8 +31,8 @@ export type EmployeeInfo = {
 export async function findEmployees(data: EmployeeInfo) {
 
     if (!data.name && !data.departmentId) return employeeRepository.findAllEmployees()
-    if (!isNaN(Number(data.name))) throw invalidDataError('name should be a string')
-    if (isNaN(Number(data.departmentId))) throw invalidDataError('departmentId should be a number')
+    if (data.name && !isNaN(Number(data.name))) throw invalidDataError('name should be a string')
+    if (data.departmentId && isNaN(Number(data.departmentId))) throw invalidDataError('departmentId should be a number')
     if (data.name && !data.departmentId) return employeeRepository.findEmployeesByName(data.name)
     if (!data.name && data.departmentId) return employeeRepository.findEmployeesByDepartmentId(data.departmentId)
     return employeeRepository.findEmployeesByNameAndDepartmentId(data.name, data.departmentId)
