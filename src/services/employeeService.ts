@@ -12,14 +12,14 @@ export async function createEmployee(data: CreateEmployeeParams) {
     const name = data.name.toLocaleLowerCase()
     const employee = await employeeRepository.findEmployeeByCPF(cpf)
     if (employee) throw conflictError('CPF already registered')
-    const department = await departmentRepository.findDepartmentById(departmentId)
+    const department = await departmentRepository.findDepartmentById(Number(departmentId))
     if (!department) throw conflictError('Department is not registered in the database')
     return employeeRepository.create({
         name,
         cpf,
         dateOfBirth,
-        salary,
-        departmentId
+        salary: Number(salary),
+        departmentId: Number(departmentId)
     })
 }
 
@@ -40,7 +40,7 @@ export async function findEmployees(data: EmployeeInfo) {
 
 export async function updateEmployee(id: number, data: UpdateEmployee) {
     if (isNaN(id)) throw invalidDataError('Employee id should be a number')
-    return employeeRepository.updateEmployee(id, data)
+    return employeeRepository.updateEmployee(Number(id), data)
 }
 
 export async function deleteEmployee(id: number) {

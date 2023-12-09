@@ -16,7 +16,15 @@ export async function getEmployees(req: Request, res: Response) {
 
 export async function putEmployees(req: Request, res: Response) {
     const id = Number(req.params.id)
-    const employee = await employeeService.updateEmployee(id, req.body)
+    const { name, cpf, salary, dateOfBirth, departmentId } = req.body
+    const data = {
+        name: name.toLowerCase(),
+        cpf,
+        salary: Number(salary),
+        dateOfBirth,
+        departmentId: Number(departmentId)
+    }
+    const employee = await employeeService.updateEmployee(id, data)
     return res.status(httpStatus.OK).send(employee)
 }
 

@@ -26,7 +26,8 @@ async function findAllEmployees() {
             createdAt: true,
             updatedAt: true,
             Department: true
-        }
+        },
+        orderBy: { name: 'asc' }
     })
 }
 
@@ -46,7 +47,8 @@ async function findEmployeesByName(name: string) {
             createdAt: true,
             updatedAt: true,
             Department: true
-        }
+        },
+        orderBy: { name: 'asc' }
     })
 }
 
@@ -64,7 +66,8 @@ async function findEmployeesByDepartmentId(departmentId: number) {
             createdAt: true,
             updatedAt: true,
             Department: true
-        }
+        },
+        orderBy: { name: 'asc' }
     })
 }
 
@@ -87,7 +90,8 @@ async function findEmployeesByNameAndDepartmentId(name: string, departmentId: nu
             createdAt: true,
             updatedAt: true,
             Department: true
-        }
+        },
+        orderBy: { name: 'asc' }
     })
 }
 
